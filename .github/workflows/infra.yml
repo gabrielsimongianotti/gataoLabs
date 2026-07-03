@@ -49,6 +49,7 @@ jobs:
         working-directory: terraform
         run: |
           terraform init \
+            -upgrade \
             -backend-config="bucket=${{ inputs.aws-statefile-s3-bucket }}" \
             -backend-config="key=${{ github.event.repository.name }}" \
             -backend-config="region=${{ inputs.aws-region }}" \
@@ -71,7 +72,7 @@ jobs:
         if: steps.read-destroy-config.outputs.destroy != 'true'
         id: terraform-plan
         run: terraform workspace select -or-create ${{ inputs.environment }} &&
-          terraform plan -var-file="./envs/${{ inputs.environment }}/terraform.tfvars" -out="${{ inputs.environment }}.plan"
+          terraform plan -var-file="../envs/${{ inputs.environment }}/terraform.tfvars" -out="${{ inputs.environment }}.plan"
 
       - name: Terraform Apply
         if: steps.read-destroy-config.outputs.destroy != 'true'
