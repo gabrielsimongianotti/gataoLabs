@@ -1,1 +1,2 @@
-bucket_name = "stating-bucket-gatao-labs"
+bucket_name   = "stating-bucket-gatao-labs"
+function_name = "staging-function-gatao-labs"
