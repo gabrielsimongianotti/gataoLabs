@@ -1,1 +1,2 @@
-bucket_name = "prod-bucket-gatao-labs"
+function_name = "prod-function-gatao-labs"
+environment   = "prod"
