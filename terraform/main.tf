@@ -13,3 +13,9 @@ terraform {
     }
   }
 }
+module "lambda" {
+  source = "./modules/lambda-template"
+
+  function_name = var.function_name
+  environment   = var.environment
+}
