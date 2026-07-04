@@ -18,6 +18,6 @@ resource "aws_lambda_function" "main" {
 
 data "archive_file" "lambda_zip" {
   type        = "zip"
-  source_dir  = "${path.module}/../../lambda-template"
+  source_dir  = "${path.module}/../../../lambda-template"
   output_path = "${path.module}/lambda.zip"
 }
