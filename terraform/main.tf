@@ -11,6 +11,12 @@ terraform {
       source  = "hashicorp/archive"
       version = "~> 2.7"
     }
+
+    null = {
+      source  = "hashicorp/null" # 👈 necessário para null_resource
+      version = "~> 3.0"
+    }
+
   }
 }
 module "lambda" {
