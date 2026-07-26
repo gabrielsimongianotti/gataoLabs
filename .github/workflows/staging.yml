@@ -17,4 +17,4 @@ jobs:
             environment: staging
             aws-region: "us-east-1"
             aws-statefile-s3-bucket: "lambda-deploy-pipeline-gatao"
-            aws-lock-dynamodb-table: "github-actions-gabrielsimongianotti-pipeline"
+            aws-lock-dynamodb-table: "github-actions-pipeline-pro"

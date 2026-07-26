@@ -24,18 +24,17 @@ jobs:
         shell: bash
 
     steps:
-      - name: Debug secrets
-        run: |
-          echo "Role ARN is set: ${{ secrets.AWS_ASSUME_ROLE_ARN != '' }}"
-          echo "Region: ${{ inputs.aws-region }}"
-
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.8.3
+          terraform_version: 1.13.0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -54,10 +53,12 @@ jobs:
         working-directory: terraform
         run: |
           terraform init \
+            -upgrade \
+            -reconfigure \
             -backend-config="bucket=${{ inputs.aws-statefile-s3-bucket }}" \
             -backend-config="key=${{ github.event.repository.name }}" \
             -backend-config="region=${{ inputs.aws-region }}" \
-            -backend-config="dynamodb_table=${{ inputs.aws-lock-dynamodb-table }}"
+            -backend-config="use_lockfile=true"
 
       - name: Terraform Validate
         working-directory: terraform
