@@ -64,6 +64,13 @@ jobs:
         working-directory: terraform
         run: terraform validate
 
+      - name: Terraform Force Unlock
+        if: steps.read-destroy-config.outputs.destroy == 'true'
+        working-directory: terraform
+        run: |
+          terraform workspace select ${{ inputs.environment }} || terraform workspace new ${{ inputs.environment }}
+          echo "yes" | terraform force-unlock 48cb4d2d-247d-7ec7-df6e-bc5aa00315ac || echo "no lock to unlock"
+
       - name: Terraform Destroy
         if: steps.read-destroy-config.outputs.destroy == 'true'
         id: terraform-destroy
