@@ -36,6 +36,10 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Build Lambda
+        working-directory: lambda-template
+        run: npm ci && npm run build
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
