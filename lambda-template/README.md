@@ -27,7 +27,7 @@ aws lambda invoke \
   --function-name prod-function-gatao-labs \
   --cli-binary-format raw-in-base64-out \
   --payload '{}' \
-  cat.json && cat cat.json
+  cat_me.json && cat cat_me.json
 ```
 
 `--cli-binary-format raw-in-base64-out` is required so the CLI passes the payload as-is (not base64). The response is written to `cat.json` and then printed. The output is the handler's full `APIGatewayProxyResult`, e.g.:
