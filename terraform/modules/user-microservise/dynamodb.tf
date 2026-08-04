@@ -8,19 +8,6 @@ resource "aws_dynamodb_table" "users" {
     type = "S"
   }
 
-  attribute {
-    name = "password"
-    type = "S"
-  }
-
-  attribute {
-    name = "email"
-    type = "S"
-  }
-  attribute {
-    name = "name"
-    type = "S"
-  }
   tags = {
     Name        = "users-${var.environment}"
     Environment = var.environment

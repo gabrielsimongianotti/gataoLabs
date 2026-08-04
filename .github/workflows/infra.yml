@@ -40,6 +40,10 @@ jobs:
         working-directory: lambda-template
         run: npm ci && npm run build
 
+      - name: Build user-microservise
+        working-directory: user-microservise
+        run: npm ci && npm run build
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
