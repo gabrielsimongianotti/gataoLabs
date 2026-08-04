@@ -13,7 +13,7 @@ resource "null_resource" "build_lambda" {
   }
 }
 resource "aws_lambda_function" "main" {
-  function_name    = var.function_name
+  function_name    = "${var.function_name}-${var.environment}"
   filename         = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
