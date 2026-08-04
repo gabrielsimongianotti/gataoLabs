@@ -1,0 +1,25 @@
+{
+  "name": "lambda-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "coverage": "vitest run --coverage --coverage.reporter=json-summary --coverage.reporter=html",
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.162",
+    "@types/node": "^26.1.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.7"
+  }
+}

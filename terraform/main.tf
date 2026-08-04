@@ -25,3 +25,10 @@ module "lambda" {
   function_name = var.function_name
   environment   = var.environment
 }
+
+module "user-microservise" {
+  source = "./modules/user-microservise"
+
+  function_name = var.user_microservise_name
+  environment   = var.environment
+}

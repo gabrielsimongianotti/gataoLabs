@@ -13,6 +13,8 @@ crash.log
 crash.*.log
 lambda-template/dist/
 lambda-template/node_modules/
+user-microservise/dist/
+user-microservise/node_modules/
 cat_me.json
 *coverage* 
 
