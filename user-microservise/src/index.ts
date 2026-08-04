@@ -8,6 +8,6 @@ export const handler = async (
 
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: "Hello from user-microservise!" }),
+    body: JSON.stringify({ message: "Hello from user-microservise test!" }),
   };
 };

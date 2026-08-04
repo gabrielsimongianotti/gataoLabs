@@ -1,4 +1,4 @@
-# lambda-template
+# user-microservise
 
 A minimal TypeScript AWS Lambda used as the function source for the `lambda` Terraform module in this repo.
 
@@ -9,7 +9,7 @@ A Node.js 20 (CommonJS) Lambda handler written in TypeScript. It receives an eve
 Structure:
 
 ```
-lambda-template/
+user-microservise/
 ├── src/index.ts       # handler source
 ├── package.json       # build scripts & deps
 ├── tsconfig.json
@@ -24,7 +24,7 @@ Run from anywhere with AWS credentials configured (`aws configure` or env vars),
 
 ```bash
 aws lambda invoke \
-  --function-name prod-function-gatao-labs \
+  --function-name staging-user-microservise \
   --cli-binary-format raw-in-base64-out \
   --payload '{}' \
   cat_me.json && cat cat_me.json
