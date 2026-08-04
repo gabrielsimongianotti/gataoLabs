@@ -27,8 +27,8 @@ module "lambda" {
 }
 
 module "user-microservise" {
-  source = "./modules/user-microservise"
-
-  function_name = var.user_microservise_name
-  environment   = var.environment
+  source              = "./modules/user-microservise"
+  dynamodb_table_name = var.dynamodb_table_name
+  function_name       = var.user_microservise_name
+  environment         = var.environment
 }

@@ -23,12 +23,14 @@ resource "aws_lambda_function" "main" {
 
   environment {
     variables = {
-      ENV = var.environment
+      ENV        = var.environment
+      TABLE_NAME = aws_dynamodb_table.users.name
     }
   }
 
   depends_on = [
     aws_iam_role_policy_attachment.lambda_basic,
+    aws_iam_role_policy_attachment.dynamodb,
     null_resource.build_lambda
   ]
 }
